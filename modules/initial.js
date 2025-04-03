@@ -9,10 +9,14 @@ import { slice } from "./_setup.js";
  * @param {number} n The last `n` elements will be excluded.
  * @param {boolean} guard When guard is `true` (or any other value that can be implicitly converted
  * to `true`), the argument `n` will not influence the result.
- * @returns {T[]} A new array that processed from `array`. When parameter `n` is passed to the
- * function, last `n` elements will be excluded. When parameter `n` is not passed, last
- * entry of array will be excluded. When `guard` is truthy, then parameter `n` will be
- * ignored.
+ * @returns {T[]} See below
+ * 
+ * ``` javascript
+ * initial([1, 2, 3]);              => [1, 2]
+ * initial([1, 3, 4, 2], 0);        => [1, 3, 4, 2]
+ * initial([1, 3, 4, 4], 2, true);  => [1, 3, 4]
+ * initial([1, 3, 4, 4], 2, 1]);    => [1, 3, 4]* 
+ * ```
  */
 export default function initial(array, n, guard) {
   return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
