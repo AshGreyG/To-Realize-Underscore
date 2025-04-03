@@ -4,11 +4,12 @@ import { slice } from "./_setup.js";
  * @description Returns everything but the last entry of array. Especially useful on
  * the arguments object. Passing `n` will return all the values in the array, excluding
  * last n elements.
- * @param array The array needed to be processed.
- * @param n The last `n` elements will be excluded.
- * @param guard When guard is `true` (or any other value that can be implicitly converted
+ * @template T
+ * @param {T[]} array The array needed to be processed.
+ * @param {number} n The last `n` elements will be excluded.
+ * @param {boolean} guard When guard is `true` (or any other value that can be implicitly converted
  * to `true`), the argument `n` will not influence the result.
- * @returns A new array that processed from `array`. When parameter `n` is passed to the
+ * @returns {T[]} A new array that processed from `array`. When parameter `n` is passed to the
  * function, last `n` elements will be excluded. When parameter `n` is not passed, last
  * entry of array will be excluded. When `guard` is truthy, then parameter `n` will be
  * ignored.
