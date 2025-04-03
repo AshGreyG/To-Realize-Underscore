@@ -11,15 +11,15 @@ However, Underscore functions are not designed to work on sparse arrays.
   first **n** elements of the array.
 
   ``` javascript
-  first();                       => undefined
-  first(null);                   => undefined
-  first(null, null, true);       => undefined
-  first(null, 1, true);          => undefined
-  first(null, 1, false);         => []
-  first([1, 2, 3]);              => 1
-  first([1, 2, 3], null);        => 1
-  first([1, 2, 3, 4], 2);        => [1, 2]
-  first([1, 2, 3, 4], 2, true);  => 1
+  _.first();                       => undefined
+  _.first(null);                   => undefined
+  _.first(null, null, true);       => undefined
+  _.first(null, 1, true);          => undefined
+  _.first(null, 1, false);         => []
+  _.first([1, 2, 3]);              => 1
+  _.first([1, 2, 3], null);        => 1
+  _.first([1, 2, 3, 4], 2);        => [1, 2]
+  _.first([1, 2, 3, 4], 2, true);  => 1
   ```
 
 ## `initial`
