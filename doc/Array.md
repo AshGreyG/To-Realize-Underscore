@@ -58,13 +58,13 @@ However, Underscore functions are not designed to work on sparse arrays.
   elements of the array.
 
   ``` javascript
-  last();                       => undefined
-  last(null);                   => undefined
-  last(null, null, true);       => undefined
-  last(null, 1, true);          => undefined
-  last(null, 1, false);         => []
-  last([1, 2, 3]);              => 3
-  last([1, 2, 3], null);        => 3
-  last([1, 2, 3, 4], 2);        => [3, 4]
-  last([1, 2, 3, 4], 2, true);  => 4
+  _.last();                       => undefined
+  _.last(null);                   => undefined
+  _.last(null, null, true);       => undefined
+  _.last(null, 1, true);          => undefined
+  _.last(null, 1, false);         => []
+  _.last([1, 2, 3]);              => 3
+  _.last([1, 2, 3], null);        => 3
+  _.last([1, 2, 3, 4], 2);        => [3, 4]
+  _.last([1, 2, 3, 4], 2, true);  => 4
   ```
