@@ -1,19 +1,31 @@
 flowchart TD
-  %% Name settings
+  %% Define nodes and their names
+
+  %%% `_xxx` files
   _setup(_setup: file)
+  _shallowProperty(_shallowProperty: function)
+
+  %%% Array functions
+
   initial(initial: function)
   first(first: function)
   rest(rest: function)
   last(last: function)
 
   %% Hyperlink settings
+
+  %%% `_xxx` files
+
   click _setup "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_setup.js"
+  click _shallowProperty "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_shallowProperty.js"
+
   click initial "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/initial.js"
   click first "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/first.js"
   click rest "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/rest.js"
   click last "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/last.js"
 
-  %% Array settings
+  %% Edge settings
+
   _setup --> initial
   _setup --> rest
   initial --> first
