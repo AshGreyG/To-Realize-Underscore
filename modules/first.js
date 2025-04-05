@@ -1,27 +1,42 @@
 import initial from "./initial.js";
 
 /**
- * @description Get the first element of an array. Passing `n` will return the
- * first **n** values in the array. The `guard` check allows it to return an array
- * not an undefined value.
- * @template T
- * @param {T[]} array The array needed to be processed.
- * @param {number} n The first `n` element that will be returned as an array.
- * @param {boolean} guard When `guard` is `true` or any other value that can be
- * implicitly converted to `true`, the function will never return an array.
- * @returns {T | T[] | undefined} See below (for array, null and [] are equal)
+ * Retrieves the first element(s) from an array or array-like object.
+ * Provides flexible handling for edge cases and optional parameters.
  * 
- * ``` javascript
- * first();                       => undefined
- * first(null);                   => undefined
- * first(null, null, true);       => undefined
- * first(null, 1, true);          => undefined
- * first(null, 1, false);         => []
- * first([1, 2, 3]);              => 1
- * first([1, 2, 3], null);        => 1
- * first([1, 2, 3, 4], 2);        => [1, 2]
- * first([1, 2, 3, 4], 2, true);  => 1
- * ```
+ * @template T The type of elements in the input array.
+ * 
+ * @param {T[]} array The input array (or array-like objects) to process
+ * 
+ * @param {number} [n] Optional number of elements to return from the start:
+ * - If `undefined` / `null` or when guard is truthy, returns only the first
+ *   element
+ * - If specified, returns first N elements as an array
+ * 
+ * @param {boolean} [guard] Optional flag that forces single-element return
+ * when truthy.
+ * 
+ * @returns {T | T[] | undefined} Returns:
+ * - Single element when `n` is unspecified or `guard` is truthy;
+ * - Array of first N elements when `n` is specified;
+ * - `undefined` for `null` or empty input when returning single element;
+ * - Empty array for `null` or empty input when returning multiple elements.
+ * 
+ * @example
+ * // Get first element
+ * first([1, 2, 3]);                  // -> 1
+ * first([1, 2, 3], null);            // -> 1
+ * first([1, 2, 3], undefined, true); // -> 1
+ * 
+ * // Get first N elements
+ * first([1, 2, 3, 4], 2);  // -> [1, 2]
+ * 
+ * // Edge cases
+ * first([]);       // -> undefined
+ * first(null, 2);  // -> []
+ * first([], 3);    // -> []
+ * 
+ * @see initial Used internally for N-elements retrieval
  */
 export default function first(array, n, guard) {
   if (array == null || array.length < 1) {
@@ -40,13 +55,3 @@ export default function first(array, n, guard) {
   }
   return initial(array, array.length - n);
 }
-
-// first();                       => undefined
-// first(null);                   => undefined
-// first(null, null, true);       => undefined
-// first(null, 1, true);          => undefined
-// first(null, 1, false);         => []
-// first([1, 2, 3]);              => 1
-// first([1, 2, 3], null);        => 1
-// first([1, 2, 3, 4], 2);        => [1, 2]
-// first([1, 2, 3, 4], 2, true);  => 1
