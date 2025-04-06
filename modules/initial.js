@@ -7,10 +7,8 @@ import { slice } from "./_setup.js";
  * @template T The type of elements in the input array.
  * 
  * @param {T[]} array The input array or array-like objects to process.
- * 
  * @param {number} [n] Optional number of elements to skip from the end. If
  * `null` or `undefined` or when guard is truthy, defaults to 1.
- * 
  * @param {boolean} [guard] Optional guard flag that forces default behavior
  * when truthy (ignore `n` parameter)
  * 

@@ -5,10 +5,9 @@ import { hasOwnProperty } from "./_setup.js";
  * Returns `false` for `null` or `undefined` inputs, preventing errors.
  * 
  * @template T The type of the object being checked
- * @template K The type of the property key (string | number | symbol)
+ * @template K type of the property key (string | number | symbol)
  * 
  * @param {T} obj The object to check (can be `null` or `undefined`).
- * 
  * @param {K} key The property key to check for.
  * 
  * @returns {boolean} Returns
@@ -28,8 +27,8 @@ import { hasOwnProperty } from "./_setup.js";
  * has(undefined, "test");      // -> false
  * 
  * // Works with non-string keys
- * const sym = new Symbol();
- * has({ [sym]: true }, "sym"); // -> true
+ * const sym = Symbol();
+ * has({ [sym]: true }, sym); // -> true
  * 
  * @remarks
  * Use `Object.prototype.hasOwnProperty()` for reliable property checking.

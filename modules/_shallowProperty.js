@@ -7,7 +7,6 @@
  * @template K The type of the property key
  * 
  * @param {K} key The property key to access
- * 
  * @returns {(obj: T) => T[K] | undefined} A function that takes an object and
  * returns:
  *   - The value of the specified property if the object exists

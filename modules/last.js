@@ -7,12 +7,10 @@ import rest from "./rest.js"
  * @template T The type of elements in the input array.
  * 
  * @param {T[]} array The input array (or array-like objects) to process
- * 
  * @param {number} [n] Optional number of elements to return from the end:
  * - If `undefined` / `null` or when guard is truthy, returns only the last
  *   element
  * - If specified, returns last N elements as an array
- * 
  * @param {boolean} [guard] Optional flag that forces single-element return
  * when truthy.
  * 

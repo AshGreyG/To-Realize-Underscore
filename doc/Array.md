@@ -68,3 +68,19 @@ However, Underscore functions are not designed to work on sparse arrays.
   _.last([1, 2, 3, 4], 2);        => [3, 4]
   _.last([1, 2, 3, 4], 2, true);  => 4
   ```
+
+## `flatten`
+
++ `flatten(array, [depth])`
++ [Source](../modules/flatten.js)
++ Flattens a nested array. If you pass true or 1 as the depth, the array will 
+  only be flattened a single level. Passing a greater number will cause the 
+  flattening to descend deeper into the nesting hierarchy. Omitting the depth 
+  argument, or passing false or Infinity, flattens the array all the way to 
+  the deepest nesting level. 
+
+  ``` javascript
+  _.flatten([1, [2], [3, [[4]]]]);        => [1, 2, 3, 4];
+  _.flatten([1, [2], [3, [[4]]]], true);  => [1, 2, 3, [[4]]];
+  _.flatten([1, [2], [3, [[4]]]], 2);     => [1, 2, 3, [4]];
+  ```

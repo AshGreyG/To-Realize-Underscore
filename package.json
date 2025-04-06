@@ -20,5 +20,9 @@
     "qunit": "2.10.1",
     "rollup": "^2.40.0",
     "terser": "^4.6.13"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "qunit test/"
   }
 }

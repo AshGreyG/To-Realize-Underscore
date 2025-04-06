@@ -8,7 +8,6 @@ import { toString } from "./_setup.js";
  * @template T The expected object type used for TypeScript type inference
  * 
  * @param {string} name The type name to test against (e.g. `Array`, `RegExp` etc.)
- * 
  * @returns {(obj: any) => obj is T} A type predicate function that returns
  * - `true` if the object's internal [[Class]] matches the specified tag
  * - `false` otherwise
