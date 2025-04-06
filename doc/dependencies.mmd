@@ -7,6 +7,7 @@ flowchart TD
   _getLength(_getLength: function)
   _isArrayLike(_isArrayLike: file \n createSizePropertyCheck: factory function)
   _tagTester(_tagTester: file \n tagTester: factory function)
+  _has(_has: function)
 
   %%% Array functions
 
@@ -23,11 +24,12 @@ flowchart TD
 
   %%% `_xxx` files
 
-  click _setup "../modules/_setup.js"
+  click _setup "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_setup.js"
   click _shallowProperty "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_shallowProperty.js"
   click _getLength "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_getLength.js"
   click _isArrayLike "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_isArrayLike.js"
   click _tagTester "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_tagTester.js"
+  click _has "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_has.js"
 
   %%% Array functions
 
@@ -46,6 +48,9 @@ flowchart TD
   _setup --> rest
   _setup --> _isArrayLike
   _setup --> _tagTester
+  _setup --> isArray
+  _setup --> _has
+  _tagTester --> isArray
   _shallowProperty --> _getLength
   initial --> first
   rest --> last
