@@ -38,6 +38,7 @@ flowchart TD
   subgraph ObjectUtilities
     isArray(isArray: function)
     isArguments(isArguments: function)
+    isObject(isObject: function)
     has(has: function)
   end
 
@@ -87,6 +88,7 @@ flowchart TD
 
   click isArray "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isArray.js"
   click isArguments "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isArguments.js"
+  click isObject "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isObject.js"
   click has "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_has.js"
 
   %%% Function functions 😄

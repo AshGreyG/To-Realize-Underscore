@@ -21,3 +21,15 @@
   _.isArguments([1, 2, 3]);                                   => false
   (function() { return _.isArguments(arguments); })(1, 2, 3); => true
   ```
+
+## `isObject`
+
++ `isObject(object)`
++ [Source](../modules/isObject.js)
++ Returns true if value is an Object. Note that JavaScript arrays and functions are 
+  objects, while (normal) strings and numbers are not.
+
+  ``` javascript
+  _.isObject({}); => true
+  _.isObject(1);  => false
+  ```
