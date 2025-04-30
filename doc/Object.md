@@ -33,3 +33,14 @@
   _.isObject({}); => true
   _.isObject(1);  => false
   ```
+
+## `isFunction`
+
++ `isFunction(object)`
++ [Source](../modules/isFunction.js)
++ Returns true if **object** is a Function
+
+  ``` javascript
+  _.isFunction(() => {}); => true
+  _.isFunction(alert);    => true
+  ```
