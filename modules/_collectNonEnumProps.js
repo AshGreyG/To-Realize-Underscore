@@ -38,30 +38,30 @@ function emulatedSet(keys) {
 /**
  * Internal helper function. Check `keys` for the presence of keys in IE < 9
  * that won't be iterated by `for key in ..` and thus missed. Extends `keys`
- * in place if needed.
+ * in place if needed. This is a side effect function, it changes the input.
  * 
  * @param {object} obj
- * @param {any[]} keys
+ * @param {any[] | { contains: (key: any) => boolean; push: (key: any) => number }} keys
  */
 export default function collectNonEnumProps(obj, keys) {
-  var keysSet = emulatedSet(keys);
+  keys = emulatedSet(keys);
   var nonEnumIndex = nonEnumerableProps.length;
   var constructor = obj.constructor;
   var proto = (isFunction(constructor) && constructor.prototype) || ObjProto;
 
   var prop = "constructor";
-  if (has(obj, prop) && !keysSet.contains(prop)) {
-    keysSet.push(prop);
+  if (has(obj, prop) && !keys.contains(prop)) {
+    keys.push(prop);
   }
 
   while (nonEnumIndex--) {
     prop = nonEnumerableProps[nonEnumIndex];
-    if (prop in obj && obj[prop] !== proto[prop] && !keysSet.contains(prop)) {
+    if (prop in obj && obj[prop] !== proto[prop] && !keys.contains(prop)) {
       // - prop in obj : Property is in object or its prototype chain;
       // - obj[prop] !== proto[prop] : Object has overwritten the property;
-      // - !keysSet.contains(prop) : Property is not in object.
+      // - !keys.contains(prop) : Property is not in object.
 
-      keysSet.push(prop);
+      keys.push(prop);
     }
   }
 }
