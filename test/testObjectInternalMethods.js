@@ -4,6 +4,7 @@ import _getLength from "../modules/_getLength.js";
 import _has from "../modules/_has.js";
 import _isArrayLike from "../modules/_isArrayLike.js";
 import _tagTester from "../modules/_tagTester.js";
+import collectNonEnumProps from "../modules/_collectNonEnumProps.js";
 
 (function() {
   QUnit.module("Object Internal Methods", (hooks) => {
@@ -173,6 +174,21 @@ import _tagTester from "../modules/_tagTester.js";
         isSymbol(Symbol(12)),
         true,
         "🟥 Tag tester for symbol failed to match expectation."
+      );
+    });
+
+    QUnit.test("Internal Collect Non-Enumerable Properties From \`./modules/_collectNonEnumProps.js\`", (assert) => {
+      let keys = collectNonEnumProps({}, ["alice", "bob", "charlie"]);
+      assert.equal(
+        keys.contains("alice"),
+        true,
+        "🟥 User-added properties are failed to add to the object."
+      );
+      let objectProtoKeys = collectNonEnumProps(Object.prototype, []);
+      assert.equal(
+        objectProtoKeys.contains("constructor"),
+        true,
+        "🟥 Constructor of object prototype is failed to add to the object."
       );
     });
   });

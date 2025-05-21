@@ -8,10 +8,10 @@ import has from "./_has.js";
  * circular imports. `emulatedSet` is a one-off solution that only works
  * for arrays or strings.
  * 
- * @param {any[]} keys Input array used to emulate the set, every
+ * @param {PropertyKey} keys Input array used to emulate the set, every
  * element in it is recorded as `true`.
  * 
- * @returns {{ contains: (key: any) => boolean; push: (key: any) => number}}
+ * @returns {{ contains: (key: PropertyKey) => boolean; push: (key: PropertyKey) => number}}
  * 
  * @example
  * var test = emulatedSet([1, 2, 3]);
@@ -30,7 +30,7 @@ function emulatedSet(keys) {
       hash[key] = true;
       return keys.push(key);
     }
-  }
+  };
 
   // This is a clojure, the returned object has access to variable `keys`
 }
@@ -40,28 +40,35 @@ function emulatedSet(keys) {
  * that won't be iterated by `for key in ..` and thus missed. Extends `keys`
  * in place if needed. This is a side effect function, it changes the input.
  * 
- * @param {object} obj
- * @param {any[] | { contains: (key: any) => boolean; push: (key: any) => number }} keys
+ * @template {{}} T
+ * 
+ * @param {T} obj The 
+ * @param {PropertyKey[]} keys
+ * 
+ * @returns {{ contains: (key: PropertyKey) => boolean; push: (key: PropertyKey) => number}}
  */
 export default function collectNonEnumProps(obj, keys) {
-  keys = emulatedSet(keys);
+  const wrappedKeys = emulatedSet(keys);
   var nonEnumIndex = nonEnumerableProps.length;
   var constructor = obj.constructor;
   var proto = (isFunction(constructor) && constructor.prototype) || ObjProto;
 
   var prop = "constructor";
-  if (has(obj, prop) && !keys.contains(prop)) {
-    keys.push(prop);
+  if (has(obj, prop) && !wrappedKeys.contains(prop)) {
+    wrappedKeys.push(prop);
   }
 
   while (nonEnumIndex--) {
     prop = nonEnumerableProps[nonEnumIndex];
-    if (prop in obj && obj[prop] !== proto[prop] && !keys.contains(prop)) {
+    if (prop in obj && obj[prop] !== proto[prop] && !wrappedKeys.contains(prop)) {
       // - prop in obj : Property is in object or its prototype chain;
       // - obj[prop] !== proto[prop] : Object has overwritten the property;
       // - !keys.contains(prop) : Property is not in object.
 
-      keys.push(prop);
+      wrappedKeys.push(prop);
     }
   }
+  return wrappedKeys;
+
+  // This is not for product environment, the return sentence is just for learning and testing
 }
