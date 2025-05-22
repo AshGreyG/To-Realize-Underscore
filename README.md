@@ -43,6 +43,7 @@ flowchart TD
     isFunction(isFunction: function)
     has(has: function)
     keys(keys: function)
+    allKeys(allKeys: function)
   end
 
   subgraph FunctionUtilities
@@ -60,6 +61,8 @@ flowchart TD
   _setup --> _createSizePropertyCheck
   _setup --> _collectNonEnumProps
   _setup --> isFunction
+  _setup --> keys
+  _setup --> allKeys
 
   _tagTester --> isArray
   _tagTester --> isArguments
@@ -72,6 +75,12 @@ flowchart TD
   has --> isArguments
   has --> _collectNonEnumProps
   isFunction --> _collectNonEnumProps
+  _collectNonEnumProps --> keys
+  isObject --> keys
+  has --> keys
+  _collectNonEnumProps --> allKeys
+  isObject --> allKeys
+
 
   %% Hyperlink settings
 
@@ -101,6 +110,7 @@ flowchart TD
   click isFunction "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isFunction.js"
   click has "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_has.js"
   click keys "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/keys.js"
+  click allKeys "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/allKeys.js"
 
   %%% Function functions 😄
 
