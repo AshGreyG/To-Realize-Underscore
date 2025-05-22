@@ -10,6 +10,7 @@ flowchart TD
   _isArrayLike(isArrayLike: function)
   _tagTester(tagTester: factory function)
   _optimizeCb(optimizeCb: function)
+  _collectNonEnumProps(collectNonEnumProps: function)
 
   %%% Array functions
 
@@ -26,7 +27,9 @@ flowchart TD
     isArray(isArray: function)
     isArguments(isArguments: function)
     isObject(isObject: function)
+    isFunction(isFunction: function)
     has(has: function)
+    keys(keys: function)
   end
 
   subgraph FunctionUtilities
@@ -42,15 +45,20 @@ flowchart TD
   _setup --> isArray
   _setup --> has
   _setup --> _createSizePropertyCheck
+  _setup --> _collectNonEnumProps
+  _setup --> isFunction
 
   _tagTester --> isArray
   _tagTester --> isArguments
+  _tagTester --> isFunction
   _shallowProperty --> _getLength
   _createSizePropertyCheck --> _isArrayLike
   _getLength --> _isArrayLike
   initial --> first
   rest --> last 
   has --> isArguments
+  has --> _collectNonEnumProps
+  isFunction --> _collectNonEnumProps
 
   %% Hyperlink settings
 
@@ -63,6 +71,7 @@ flowchart TD
   click _isArrayLike "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_isArrayLike.js"
   click _tagTester "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_tagTester.js"
   click _optimizeCb "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_optimizeCb.js"
+  click _collectNonEnumProps "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_collectNonEnumProps.js"
 
   %%% Array functions
 
@@ -76,7 +85,9 @@ flowchart TD
   click isArray "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isArray.js"
   click isArguments "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isArguments.js"
   click isObject "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isObject.js"
+  click isFunction "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isFunction.js"
   click has "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_has.js"
+  click keys "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/keys.js"
 
   %%% Function functions 😄
 

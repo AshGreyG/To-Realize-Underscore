@@ -1,5 +1,15 @@
 # Object functions
 
+## `keys`
+
++ `keys(object)`
++ [Source](../modules/keys.js)
++ Retrieves all the names of the object's own enumerable properties
+  
+  ``` javascript
+  _.keys({ one: 1, two: 2, three: 3 }); => ["one", "two", "three"]
+  ```
+
 ## `isArray`
 
 + `isArray(object)`

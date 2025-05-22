@@ -9,7 +9,7 @@ import collectNonEnumProps from "./_collectNonEnumProps.js";
  * 
  * @param {object} obj The object that needs to get the properties.
  *
- * @return {string[]} Like `Object.keys`, this function returns the array of
+ * @returns {string[]} Like `Object.keys`, this function returns the array of
  * properties of object.
  */
 export default function keys(obj) {
