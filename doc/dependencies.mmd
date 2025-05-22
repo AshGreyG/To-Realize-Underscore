@@ -47,6 +47,7 @@ flowchart TD
   _setup --> _createSizePropertyCheck
   _setup --> _collectNonEnumProps
   _setup --> isFunction
+  _setup --> keys
 
   _tagTester --> isArray
   _tagTester --> isArguments
@@ -59,6 +60,10 @@ flowchart TD
   has --> isArguments
   has --> _collectNonEnumProps
   isFunction --> _collectNonEnumProps
+  _collectNonEnumProps --> keys
+  isObject --> keys
+  has --> keys
+
 
   %% Hyperlink settings
 
