@@ -40,12 +40,11 @@ function emulatedSet(keys) {
  * that won't be iterated by `for key in ..` and thus missed. Extends `keys`
  * in place if needed. This is a side effect function, it changes the input.
  * 
- * @template {{}} T
+ * @param {object} obj The object that needs to get properties
+ * @param {PropertyKey[]} keys The keys that will be added to the object.
  * 
- * @param {T} obj The 
- * @param {PropertyKey[]} keys
- * 
- * @returns {{ contains: (key: PropertyKey) => boolean; push: (key: PropertyKey) => number}}
+ * @returns {string[]} Like `Object.keys`, this function returns the array of
+ * properties of object.
  */
 export default function collectNonEnumProps(obj, keys) {
   const wrappedKeys = emulatedSet(keys);
@@ -66,9 +65,12 @@ export default function collectNonEnumProps(obj, keys) {
       // - !keys.contains(prop) : Property is not in object.
 
       wrappedKeys.push(prop);
+      keys.push(prop);
     }
   }
-  return wrappedKeys;
+  return keys;
 
   // This is not for product environment, the return sentence is just for learning and testing
+  // This function is used for emulating `Object.keys` function, so it needs to return
+  // `string[]`
 }

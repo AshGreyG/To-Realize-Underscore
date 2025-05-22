@@ -179,15 +179,15 @@ import collectNonEnumProps from "../modules/_collectNonEnumProps.js";
 
     QUnit.test("Internal Collect Non-Enumerable Properties From \`./modules/_collectNonEnumProps.js\`", (assert) => {
       let keys = collectNonEnumProps({}, ["alice", "bob", "charlie"]);
-      assert.equal(
-        keys.contains("alice"),
-        true,
+      assert.deepEqual(
+        keys,
+        ["alice", "bob", "charlie"],
         "🟥 User-added properties are failed to add to the object."
       );
       let objectProtoKeys = collectNonEnumProps(Object.prototype, []);
-      assert.equal(
-        objectProtoKeys.contains("constructor"),
-        true,
+      assert.deepEqual(
+        objectProtoKeys,
+        ["constructor"],
         "🟥 Constructor of object prototype is failed to add to the object."
       );
     });
