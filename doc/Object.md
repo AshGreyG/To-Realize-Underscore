@@ -4,10 +4,24 @@
 
 + `keys(object)`
 + [Source](../modules/keys.js)
-+ Retrieves all the names of the object's own enumerable properties
++ Retrieves all the names of the object's own enumerable properties.
   
   ``` javascript
   _.keys({ one: 1, two: 2, three: 3 }); => ["one", "two", "three"]
+  ```
+
+## `allKeys`
+
++ `allKeys(object)`
++ [Source](../modules/allKeys.js)
++ Retrieve all the names of object's own and inherited properties.
+
+  ``` javascript
+  function Storage(name) {
+    this.name = name;
+  }
+  Storage.prototype.silly = true;
+  _.allKeys(new Storage("Moe"));  => ["name", "silly"]
   ```
 
 ## `isArray`

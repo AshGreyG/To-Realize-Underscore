@@ -1,6 +1,5 @@
 import isObject from "./isObject.js";
-import { nativeKeys, hasEnumBug } from "./_setup.js";
-import has from "./_has.js";
+import { hasEnumBug } from "./_setup.js";
 import collectNonEnumProps from "./_collectNonEnumProps.js";
 
 /**
@@ -14,12 +13,9 @@ import collectNonEnumProps from "./_collectNonEnumProps.js";
  */
 export default function keys(obj) {
   if (!isObject(obj)) return [];
-  if (nativeKeys) return nativeKeys(obj);
   var keys = [];
   for (var key in obj) {
-    if (has(obj, key)) {
-      keys.push(key);
-    }
+    keys.push(key);
   }
   // IE < 9
   if (hasEnumBug) keys = collectNonEnumProps(obj, keys);
