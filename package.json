@@ -10,7 +10,7 @@
     "eslint-plugin-import": "^2.20.1",
     "glob": "^7.1.6",
     "gzip-size-cli": "^1.0.0",
-    "husky": "^4.2.3",
+    "husky": "^8.0.0",
     "karma": "^4.4.1",
     "karma-qunit": "^4.1.2",
     "karma-sauce-launcher": "^4.3.6",
@@ -23,6 +23,7 @@
   },
   "type": "module",
   "scripts": {
-    "test": "qunit test/"
+    "test": "qunit test/",
+    "prepare": "husky"
   }
 }
