@@ -25,6 +25,12 @@ flowchart TD
   _optimizeCb(optimizeCb: function)
   _collectNonEnumProps(collectNonEnumProps: function)
 
+  %%% Collections functions
+
+  subgraph CollectionsUtilities
+    each(each: function)
+  end
+
   %%% Array functions
 
   subgraph ArrayUtilities
@@ -80,7 +86,9 @@ flowchart TD
   has --> keys
   _collectNonEnumProps --> allKeys
   isObject --> allKeys
-
+  _optimizeCb --> each
+  _isArrayLike --> each
+  keys --> each
 
   %% Hyperlink settings
 
