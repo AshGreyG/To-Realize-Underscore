@@ -68,3 +68,14 @@
   _.isFunction(() => {}); => true
   _.isFunction(alert);    => true
   ```
+
+## `isMatch`
+
++ `isMatch(object, properties)`
++ [Source](../modules/isMatch.js)
++ Returns true if keys and values in `properties` are in `object`
+
+  ``` javascript
+  var storage = { opacity: 300, id: "123" };
+  _.isMatch(storage, { id: "123" });  => true
+  ```

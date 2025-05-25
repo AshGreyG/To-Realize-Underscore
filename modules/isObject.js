@@ -2,7 +2,7 @@
  * Checks if a value is an object (including functions) and not `null` / `undefined`
  * 
  * @param {any} obj The value to check
- * @returns {boolean} Returns
+ * @returns {obj is object & import("..").Dictionary<any>} Returns
  * - `true` if the value is an object (including functions) and not `null`
  * - `false` for primitives, `null` and `undefined`
  * 

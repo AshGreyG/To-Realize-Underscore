@@ -6,7 +6,7 @@ import collectNonEnumProps from "./_collectNonEnumProps.js";
  * Retrieve the names of an object own properties. Delegates to
  * ECMAScript 5 native `Object.keys()`
  * 
- * @param {object} obj The object that needs to get the properties.
+ * @param {any} obj The object that needs to get the properties.
  *
  * @returns {string[]} Like `Object.keys`, this function returns the array of
  * properties of object.

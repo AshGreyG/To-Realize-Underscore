@@ -34,6 +34,7 @@ flowchart TD
     isArguments(isArguments: function)
     isObject(isObject: function)
     isFunction(isFunction: function)
+    isMatch(isMatch: function)
     has(has: function)
     keys(keys: function)
     allKeys(allKeys: function)
@@ -76,6 +77,7 @@ flowchart TD
   _optimizeCb --> each
   _isArrayLike --> each
   keys --> each
+  keys --> isMatch
 
   %% Hyperlink settings
 
@@ -90,6 +92,10 @@ flowchart TD
   click _optimizeCb "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_optimizeCb.js"
   click _collectNonEnumProps "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_collectNonEnumProps.js"
 
+  %%% Collection functions
+
+  click each "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/each.js"
+
   %%% Array functions
 
   click initial "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/initial.js"
@@ -103,6 +109,7 @@ flowchart TD
   click isArguments "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isArguments.js"
   click isObject "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isObject.js"
   click isFunction "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isFunction.js"
+  click isMatch "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/isMatch.js"
   click has "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/_has.js"
   click keys "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/keys.js"
   click allKeys "https://github.com/AshGreyG/To-Realize-Underscore/blob/main/modules/allKeys.js"
